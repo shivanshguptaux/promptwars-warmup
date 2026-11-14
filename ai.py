@@ -1,16 +1,17 @@
 """Gemini briefing generation using google-genai with fallback, cache, and schema."""
 
-from collections import OrderedDict
 import hashlib
 import json
 import logging
 import os
 import time
+from collections import OrderedDict
 from typing import Any, Literal
 
 from google import genai
+from google.genai import errors as genai_errors
 from google.genai import types
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 logger = logging.getLogger("pw-warmup")
 
@@ -252,14 +253,15 @@ def generate_briefing(
 
     fallback_used = False
     used_model = primary_model
+    recoverable = (genai_errors.APIError, ValidationError, ValueError, TimeoutError, OSError, RuntimeError)
     try:
         result = _call_model(client, primary_model, prompt)
-    except Exception:
+    except recoverable:
         fallback_used = True
         used_model = fallback_model
         try:
             result = _call_model(client, fallback_model, prompt)
-        except Exception as exc:
+        except recoverable as exc:
             logger.info(
                 json.dumps(
                     {
