@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Staff Sign In — Civic Air Quality Briefing Studio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="{{ url_for('index') }}" class="brand-title">Civic Air Quality Briefing Studio</a>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary btn-sm">Back to Studio</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="container login-container">
+    <section class="card">
+      <h1>Staff Sign In</h1>
+      <p class="muted">Sign in to view internal briefing notes. Public citizen advisories remain open without sign-in.</p>
+
+      <div class="demo-creds">
+        <strong>Demo staff credentials:</strong>
+        <span>Username: <code>staff</code></span>
+        <span>Password: <code>ward14demo</code></span>
+      </div>
+
+      {% if error %}
+        <p class="error-text" role="alert">{{ error }}</p>
+      {% endif %}
+
+      <form method="post" action="{{ url_for('login') }}">
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

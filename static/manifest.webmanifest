@@ -1,0 +1,15 @@
+{
+  "name": "Civic Air Quality Briefing Studio",
+  "short_name": "AQ Studio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF8",
+  "theme_color": "#0F6E66",
+  "icons": [
+    {
+      "src": "/static/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

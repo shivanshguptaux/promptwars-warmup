@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "id": "morning_ward",
+      "label": "Example: Morning Ward 14 Table (Messy)",
+      "role": "ward_officer",
+      "language": "English",
+      "reading_level": "Standard",
+      "raw_table": "Station,Time,PM2.5,AQI,Unit,Notes\nSchool Gate North,07:30,168,,ug/m3,Diesel buses idling\nMarket Chowk,07:35,,312,AQI,Peak traffic\nSector 4 Park,07:40,42,,ug/m3,Clear morning\nIndustrial Naka,07:45,-12,,ug/m3,Sensor glitch?\nGreenwoods Society,07:50,MISSING,,ug/m3,Power cut\nBus Depot East,08:00,215,,ug/m3,Construction dust\nOld Age Home Lane,08:05,,268,AQI,Smoke from burning waste\nMain Highway,08:10,9999,,ug/m3,Calibration error"
+    },
+    {
+      "id": "afternoon_spike",
+      "label": "Example: Afternoon Spike (Hindi + Simple)",
+      "role": "school",
+      "language": "Hindi",
+      "reading_level": "Simple",
+      "raw_table": "Location\tTime\tPM2.5\tAQI\tUnit\tStatus\nSchool Gate North\t13:00\t195\t\tug/m3\tVery dusty\nMarket Chowk\t13:05\t\t345\tAQI\tHeavy congestion\nSector 4 Park\t13:10\t78\t\tug/m3\tModerate\nGreenwoods Society\t13:15\t142\t\tug/m3\tBack online\nBus Depot East\t13:20\t240\t\tug/m3\tRoad work ongoing\nOld Age Home Lane\t13:25\t\t290\tAQI\tWaste smoke continues"
+    }
+  ]
+}
